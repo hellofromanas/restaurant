@@ -1,6 +1,6 @@
 "use client";
 
-import { generateWhatsAppLink } from "../utils/whatsapp";
+import { generateWhatsAppLink } from "@/utils/whatsapp";
 import { useState } from "react";
 
 export default function Cart({ cart, setCart }) {
@@ -44,25 +44,25 @@ export default function Cart({ cart, setCart }) {
   };
 
   return (
-    <div className="bg-white p-4 mt-4 rounded shadow">
-      <h2 className="text-xl font-bold mb-4">🛒 Cart ({cart.length} items)</h2>
+    <div>
+      <h2 className="text-2xl font-bold mb-6 text-yellow-400">🛒 Your Order ({cart.length} items)</h2>
 
       {cart.length === 0 ? (
-        <p className="text-gray-500">Your cart is empty</p>
+        <p className="text-gray-400 text-center py-8">Your cart is empty. Add items from the menu!</p>
       ) : (
         <>
-          <div className="border-b pb-4 mb-4">
+          <div className="border-b border-yellow-400/20 pb-6 mb-6 max-h-64 overflow-y-auto">
             {cart.map((item) => (
-              <div key={item.id} className="flex justify-between items-center mb-3 p-2 bg-gray-50 rounded">
+              <div key={item.id} className="flex justify-between items-center mb-4 p-3 bg-yellow-400/5 rounded-lg border border-yellow-400/10">
                 <div>
-                  <p className="font-semibold">{item.name}</p>
-                  <p className="text-sm text-gray-600">Rs {item.price} x {item.quantity}</p>
+                  <p className="font-semibold text-white">{item.name}</p>
+                  <p className="text-sm text-gray-400">Rs {item.price} × {item.quantity}</p>
                 </div>
-                <div className="flex gap-2">
-                  <span className="font-bold">Rs {item.price * item.quantity}</span>
+                <div className="flex gap-4 items-center">
+                  <span className="font-bold text-yellow-400">Rs {item.price * item.quantity}</span>
                   <button
                     onClick={() => removeItem(item.id)}
-                    className="text-red-500 hover:text-red-700"
+                    className="text-red-400 hover:text-red-300 font-bold text-lg"
                   >
                     ✕
                   </button>
@@ -71,36 +71,36 @@ export default function Cart({ cart, setCart }) {
             ))}
           </div>
 
-          <div className="mb-4 p-3 bg-blue-50 rounded">
+          <div className="mb-6 p-4 bg-yellow-400/10 rounded-lg border border-yellow-400/20 space-y-3">
             <input
               placeholder="Your Name"
-              className="border p-2 w-full mt-2 rounded"
+              className="input"
               value={customer.name}
               onChange={e => setCustomer({ ...customer, name: e.target.value })}
             />
             <input
               placeholder="Phone Number"
-              className="border p-2 w-full mt-2 rounded"
+              className="input"
               value={customer.phone}
               onChange={e => setCustomer({ ...customer, phone: e.target.value })}
             />
             <input
-              placeholder="Address (optional)"
-              className="border p-2 w-full mt-2 rounded"
+              placeholder="Delivery Address (optional)"
+              className="input"
               value={customer.address}
               onChange={e => setCustomer({ ...customer, address: e.target.value })}
             />
           </div>
 
-          <div className="bg-green-50 p-3 rounded mb-4">
-            <p className="text-lg font-bold">Total: Rs {calculateTotal()}</p>
+          <div className="bg-yellow-400/20 border border-yellow-400/40 p-4 rounded-lg mb-6">
+            <p className="text-2xl font-bold text-yellow-400 text-center">Total: Rs {calculateTotal()}</p>
           </div>
 
           <button
             onClick={handleOrder}
-            className="bg-green-600 text-white w-full p-3 mt-3 rounded font-bold hover:bg-green-700"
+            className="btn-primary w-full py-3 text-lg font-bold"
           >
-            ✓ Order via WhatsApp
+            💬 Order via WhatsApp
           </button>
         </>
       )}

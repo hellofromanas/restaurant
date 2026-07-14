@@ -18,24 +18,24 @@ export default function SpecialOffers() {
       icon: "🎁"
     },
     {
-      title: "Family Combos",
-      description: "Save up to 30% with our special family meal packages",
-      icon: "👨‍👩‍👧‍👦"
+      title: "Combo Deals",
+      description: "Save up to 50% with our PUBG-inspired family meal packages",
+      icon: "🎮"
     }
   ];
 
   return (
-    <div className="bg-gray-50 py-8 rounded-lg">
-      <h2 className="text-3xl font-bold text-center mb-8">Special Offers</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <section className="py-16 px-4 bg-yellow-400/5 rounded-3xl border border-yellow-400/20">
+      <h2 className="text-4xl font-bold text-center mb-12 text-yellow-400">Special Offers</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {offers.map((offer, idx) => (
-          <div key={idx} className="bg-white p-6 rounded shadow hover:shadow-lg transition">
-            <div className="text-4xl mb-3">{offer.icon}</div>
-            <h3 className="text-xl font-bold mb-2">{offer.title}</h3>
-            <p className="text-gray-600">{offer.description}</p>
+          <div key={idx} className="card hover:border-yellow-400/60 group cursor-pointer">
+            <div className="text-5xl mb-4 group-hover:scale-110 transition">{offer.icon}</div>
+            <h3 className="text-lg font-bold mb-2 text-yellow-400">{offer.title}</h3>
+            <p className="text-sm text-gray-400">{offer.description}</p>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

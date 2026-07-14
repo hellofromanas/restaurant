@@ -2,6 +2,193 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg: #090909;
+  --surface: #131313;
+  --surface-alt: #1f1a07;
+  --text: #f7f3e8;
+  --muted: #c1b892;
+  --brand: #ffd500;
+  --brand-dark: #e6c100;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @apply bg-black text-white;
+  background: radial-gradient(circle at top, rgba(255,215,0,.14), transparent 25%),
+              linear-gradient(180deg, #070707 0%, #101010 100%);
+  color: var(--text);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header */
+.navbar {
+  @apply sticky top-0 z-50 bg-black/80 backdrop-blur;
+  background: radial-gradient(circle at top, rgba(255,215,0,.08), transparent 25%),
+              linear-gradient(180deg, rgba(7,7,7,0.95) 0%, rgba(16,16,16,0.95) 100%);
+  border-bottom: 1px solid rgba(255, 213, 0, 0.15);
+}
+
+.navbar-brand {
+  @apply text-2xl font-bold text-yellow-400;
+  color: var(--brand);
+}
+
+.nav-link {
+  @apply px-4 py-2 rounded-full transition;
+  color: var(--muted);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  @apply bg-yellow-400/15 text-white;
+  background: rgba(255,213,0,0.15);
+}
+
+/* Buttons */
+.btn-primary {
+  @apply bg-yellow-400 text-black font-bold px-6 py-3 rounded-full hover:bg-yellow-300 transition;
+  background: var(--brand);
+}
+
+.btn-secondary {
+  @apply border-2 border-yellow-400 text-yellow-400 px-6 py-3 rounded-full hover:bg-yellow-400/10 transition;
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+/* Cards */
+.card {
+  @apply bg-white/5 border border-yellow-400/20 rounded-2xl p-6 backdrop-blur;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,213,0,0.12);
+}
+
+.card:hover {
+  @apply border-yellow-400/40;
+  border-color: rgba(255,213,0,0.4);
+}
+
+/* Menu Grid */
+.menu-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+.menu-item {
+  @apply p-4 rounded-lg border border-yellow-400/15 hover:border-yellow-400/40 transition;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,213,0,0.15);
+}
+
+.menu-item h3 {
+  @apply text-yellow-400 font-bold mb-2;
+  color: var(--brand);
+}
+
+.menu-item p {
+  @apply text-gray-400 mb-2;
+  color: var(--muted);
+}
+
+.menu-item .price {
+  @apply text-xl font-bold text-yellow-400;
+  color: var(--brand);
+}
+
+/* Section */
+.section-dark {
+  @apply rounded-3xl p-8;
+  background: rgba(255, 215, 0, 0.08);
+  border: 1px solid rgba(255, 213, 0, 0.16);
+}
+
+.section-title {
+  @apply text-3xl font-bold mb-6 text-white;
+  color: var(--text);
+}
+
+/* Hero */
+.hero-section {
+  @apply py-20 px-4;
+}
+
+.hero-title {
+  @apply text-5xl font-bold mb-4;
+  color: var(--brand);
+}
+
+/* Contact Cards */
+.contact-card {
+  @apply bg-white/5 border border-yellow-400/20 rounded-2xl p-6;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,213,0,0.12);
+}
+
+.contact-card h3 {
+  @apply text-yellow-400 font-bold mb-3;
+  color: var(--brand);
+}
+
+.contact-card a {
+  @apply text-yellow-400 hover:text-yellow-300 transition;
+  color: var(--brand);
+}
+
+/* Forms */
+input, textarea {
+  @apply w-full px-4 py-3 rounded-lg bg-white/5 border border-yellow-400/15 text-white placeholder-gray-500 focus:border-yellow-400 focus:outline-none transition;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--text);
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(193, 184, 146, 0.6);
+}
+
+/* Footer */
+.footer {
+  @apply bg-black/80 border-t border-yellow-400/15 py-8 text-center;
+  background: rgba(0,0,0,0.8);
+  border-top: 1px solid rgba(255, 213, 0, 0.15);
+  color: var(--muted);
+}
+
+.footer a {
+  @apply text-yellow-400 hover:text-yellow-300 transition;
+  color: var(--brand);
+}
+
+/* Testimonials */
+.testimonial-card {
+  @apply bg-white/5 border-l-4 border-yellow-400 rounded-lg p-4;
+  background: rgba(255,255,255,0.04);
+  border-left: 4px solid var(--brand);
+}
+
+.testimonial-card .rating {
+  @apply text-yellow-400;
+  color: var(--brand);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .hero-title {
+    @apply text-3xl;
+  }
+  
+  .section-title {
+    @apply text-2xl;
+  }
+  
+  .menu-grid {
+    @apply grid-cols-1;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
